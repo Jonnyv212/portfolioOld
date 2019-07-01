@@ -1,20 +1,23 @@
 .main {
-    background: #ddd;
+    /* background: #ddd; */
     min-width: 100vh;
     min-height: 100vh;
 }
 
 .nav{
-    background: white;
+    background: rgb(48, 133, 189);
     width: 100%;
     float: left;
-    font-family: "Calibri", Times, serif;
     border-bottom-style: solid;
     border-bottom-width: 1px;
     border-bottom-color: rgba(0,0,0,.125);
 }
 .nav p{
     float: left;
+    color: white;
+    font-family: "Calibri", Times, serif;
+    font-size: 20px;
+    padding-left: 10px;
 }
 
 .nav ul {
@@ -32,15 +35,20 @@
   
   .nav li a {
     display: block;
-    /* color: white; */
     text-align: center;
-    padding: 14px 16px;
+    padding: 20px 24px;
     text-decoration: none;
+    color: white;
+    font-family: "Calibri", Times, serif;
+    font-size: 20px;
   }
   
   /* Change the link color to #111 (black) on hover */
   .nav li a:hover {
-    background-color: #111;
+    color: white;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    border-bottom-color: white;
   }
 
   .header {
@@ -54,6 +62,9 @@
     background-color: #f5f8fa;
     /* background-color: black; */
     text-align: center;
+
+    padding-top: 150px;
+    padding-bottom: 150px;
 }
   .content {
       /* width: 75%; */
@@ -72,25 +83,29 @@
     /* border: solid black; */
     float: left;
     /* width: 50%; */
-    width: 30%;
+    width: 25%;
     margin: 0 1rem;
-    background: #fff;
+    /* background: #fff; */
     padding: 1rem;
-    box-shadow: 5px 5px #bbb;
+    /* box-shadow: 5px 5px #bbb; */
 
 }
 
   .portfolio{
     /* border: solid black; */
     float: left;
-    width: 60%;
+    width: 90%;
     margin: 0 1rem;
     background: #fff;
     padding: 1rem;
-    box-shadow: 5px 5px #bbb;
+    /* box-shadow: 5px 5px #bbb; */
 }
 
 .cardbox{
     padding: 1rem;
     margin: 2rem 0;
+    background: #fff;
+    box-shadow: 5px 5px #bbb;
+    text-align: center;
+
 }

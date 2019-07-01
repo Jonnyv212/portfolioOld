@@ -5,7 +5,11 @@ class Main extends Component {
 
 header = () => {
     return(
-        <h1>HEADER GOES UP HERE</h1>
+        <div>
+        <h1>Jonathan Vega</h1>
+        <hr/>
+        </div>
+
         )
 }
 nav = () => {
@@ -16,40 +20,16 @@ nav = () => {
 
             </p>
             <ul>
-                <li><a class="active" href="#home">Home</a></li>
-                <li><a href="#news">News</a></li>
+                <li><a class="active" href="#home">About</a></li>
+                <li><a href="#news">Projects</a></li>
+                <li><a href="#resume">Resume</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="#about">About</a></li>
+                {/* <li><a href="#resume">Resume</a></li> */}
             </ul>   
         </div>
     )
 }
 
-cardbox = () =>{
-    return(
-    <div className="cardbox">
-        <div>
-            This is a box!
-            <hr/>
-        </div>
-        
-        <div>
-            This is a box!
-            <hr/>
-        </div>
-
-        <div >
-            This is a box!
-            <hr/>
-        </div>
-    </div>
-    )
-}
-sidemenu = () =>{
-    return(
-            this.cardbox()
-    )
-}
 
 portfolio = () =>{
     return(
@@ -70,9 +50,6 @@ Proin eleifend neque quam, non accumsan velit vulputate in. Vestibulum ac maximu
 content = () => {
     return(
         <div>
-            <div className="sidemenu">
-                {this.sidemenu()}
-            </div>
 
             <div className="portfolio">
                 {this.portfolio()}
