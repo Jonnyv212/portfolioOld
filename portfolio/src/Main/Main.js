@@ -1,13 +1,25 @@
 import React, {Component} from 'react';
 import "./Main.css";
-
+import github from '../Images/github.svg';
+import linkedin from '../Images/linkedin.png';
+import email from '../Images/email.png';
 class Main extends Component {
 
 header = () => {
     return(
-        <div>
-        <h1>Jonathan Vega</h1>
-        <hr/>
+        <div className="header">
+            <div className="headername">
+                <h1>
+                    Jonathan Vega
+                </h1>
+            </div>
+            <div className="list">
+            <ul>
+                <li><a class="active" href="#home"><img src={github}/></a></li>
+                <li><a href="#news"><img src={linkedin}/></a></li>
+                <li><a href="mailto:jonnyv212@hotmail.com?Subject=Hello"><img src={email}/></a></li>
+            </ul> 
+            </div>
         </div>
 
         )
@@ -17,14 +29,12 @@ nav = () => {
         <div>
             <p>
                 Jonathan Vega
-
             </p>
             <ul>
                 <li><a class="active" href="#home">About</a></li>
                 <li><a href="#news">Projects</a></li>
                 <li><a href="#resume">Resume</a></li>
                 <li><a href="#contact">Contact</a></li>
-                {/* <li><a href="#resume">Resume</a></li> */}
             </ul>   
         </div>
     )
@@ -65,7 +75,7 @@ content = () => {
             {this.nav()}
         </div>
 
-        <div className="header">
+        <div>
             {this.header()}
         </div>
 
