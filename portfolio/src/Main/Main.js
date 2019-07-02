@@ -3,7 +3,24 @@ import "./Main.css";
 import github from "../Images/github2.jpg";
 import linkedin from "../Images/linkedin2.png";
 import email from "../Images/email6.png";
+import project1 from "../Images/portfolio_preview2.png";
+import pJS from '../Main/Main.json';
 class Main extends Component {
+
+  constructor(props){
+    super(props);
+  this.state = {
+    projects: []
+        //Adds array of objects from Main.json to projects state to call upon any object within the json.
+  }
+}
+
+componentDidMount() {
+  this.setState({
+    projects: pJS.projectList.map(projectdata => projectdata)
+  }, console.log("Projects loaded."))
+}
+
   header = () => {
     return (
       <div className="header">
@@ -55,6 +72,35 @@ class Main extends Component {
     );
   };
 
+  projects = (title, image, preview, source) => {
+    return(
+      <div className="Projects">
+            <h2>PROJECTS</h2>
+            <div className="Pcontainer">
+
+              <h2>{title}</h2>
+              <div className="Pcontent">
+                <div className="Pinfo">
+                  <img src={image} style={{ boxShadow: '0 1rem 1rem rgba(0, 0, 0, 0.2)'}}/>
+                    <div className="Plinks">
+                      <a>Preview</a>
+                      <a href={source} target="_blank">Source</a>
+                    </div>
+                </div>
+
+                <div className="Pdescription">
+                    The page you are currently viewing! teeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeext
+                    <hr/>
+                    <div className="Ptechnologies">
+                      Technologies Used
+                    </div>
+                </div>
+              </div>
+            </div>
+              <hr />
+          </div>
+    )
+  }
   portfolio = () => {
     return (
       <div>
@@ -75,20 +121,10 @@ class Main extends Component {
           facilisis ligula tortor at enim. Donec consequat, lacus vel porta
           maximus, leo mi laoreet tellus, quis bibendum metus dolor in mauris.
           <hr />
-        </div>
-        <div className="Pcontainer">
-          <h1>Project</h1>
-          <div className="Pcontent">
-            <p>CNECENTRAL</p>
-            <div>Project Image</div>
-            <div>
-              <a>Preview</a>
-              <a>Source</a>
-            </div>
           </div>
-          <hr />
-        </div>
-      </div>
+          {/* {this.projects(this.state.projects[0].projectName, this.state.projects[0].image,this.state.projects[0].source)} */}
+          {console.log(this.state.projects) }
+       </div>
     );
   };
   content = () => {
@@ -98,7 +134,10 @@ class Main extends Component {
       </div>
     );
   };
+
+
   render() {
+
     return (
       <div className="main">
         <div className="nav">{this.nav()}</div>
