@@ -67,12 +67,8 @@ class Main extends Component {
     );
   };
 
-  projects = (pjName, pjImage, pjPreview, pjSource) => {
-    // let pjindex = PJdata.map((pjDetail, index) => {
-    //   return pjDetail;
-    // });
-
-    // console.log(PJdata);
+  //Generates a project based on the JSON data.
+  projects = (pjName, pjImage, pjDescription, pjPreview, pjSource) => {
     return (
       <div className="Pcontainer">
         <h2>{pjName}</h2>
@@ -91,8 +87,7 @@ class Main extends Component {
           </div>
 
           <div className="Pdescription">
-            The page you are currently viewing!
-            teeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeext
+            {pjDescription}
             <hr />
             <div className="Ptechnologies">Technologies Used</div>
           </div>
@@ -125,14 +120,15 @@ class Main extends Component {
 
         <div className="Projects">
           <h2>PROJECTS</h2>
-        </div>
+        
         {this.projects(
           PJdata[0].projectName,
-          // require("../Images/portfolio_preview2.png"),
-          require(PJdata[0].image),
+          require("../" + PJdata[0].image),
+          PJdata[0].description,
           PJdata[0].preview,
           PJdata[0].source
         )}
+        </div>
       </div>
     );
   };
