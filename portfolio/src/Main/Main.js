@@ -4,22 +4,17 @@ import github from "../Images/github2.jpg";
 import linkedin from "../Images/linkedin2.png";
 import email from "../Images/email6.png";
 import project1 from "../Images/portfolio_preview2.png";
-import pJS from '../Main/Main.json';
+import PJdata from "../Main/Main.json";
 class Main extends Component {
-
-  constructor(props){
+  constructor(props) {
     super(props);
-  this.state = {
-    projects: []
-        //Adds array of objects from Main.json to projects state to call upon any object within the json.
+    this.state = {
+      // projects: []
+      //Adds array of objects from Main.json to projects state to call upon any object within the json.
+    };
   }
-}
 
-componentDidMount() {
-  this.setState({
-    projects: pJS.projectList.map(projectdata => projectdata)
-  }, console.log("Projects loaded."))
-}
+  componentDidMount() {}
 
   header = () => {
     return (
@@ -72,35 +67,40 @@ componentDidMount() {
     );
   };
 
-  projects = (title, image, preview, source) => {
-    return(
-      <div className="Projects">
-            <h2>PROJECTS</h2>
-            <div className="Pcontainer">
+  projects = (pjName, pjImage, pjPreview, pjSource) => {
+    // let pjindex = PJdata.map((pjDetail, index) => {
+    //   return pjDetail;
+    // });
 
-              <h2>{title}</h2>
-              <div className="Pcontent">
-                <div className="Pinfo">
-                  <img src={image} style={{ boxShadow: '0 1rem 1rem rgba(0, 0, 0, 0.2)'}}/>
-                    <div className="Plinks">
-                      <a>Preview</a>
-                      <a href={source} target="_blank">Source</a>
-                    </div>
-                </div>
-
-                <div className="Pdescription">
-                    The page you are currently viewing! teeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeext
-                    <hr/>
-                    <div className="Ptechnologies">
-                      Technologies Used
-                    </div>
-                </div>
-              </div>
+    // console.log(PJdata);
+    return (
+      <div className="Pcontainer">
+        <h2>{pjName}</h2>
+        <div className="Pcontent">
+          <div className="Pinfo">
+            <img
+              src={pjImage}
+              style={{ boxShadow: "0 1rem 1rem rgba(0, 0, 0, 0.2)" }}
+            />
+            <div className="Plinks">
+              <a href={pjPreview}> Preview</a>
+              <a href={pjSource} target="_blank">
+                Source
+              </a>
             </div>
-              <hr />
           </div>
-    )
-  }
+
+          <div className="Pdescription">
+            The page you are currently viewing!
+            teeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeext
+            <hr />
+            <div className="Ptechnologies">Technologies Used</div>
+          </div>
+        </div>
+        <hr />
+      </div>
+    );
+  };
   portfolio = () => {
     return (
       <div>
@@ -121,10 +121,19 @@ componentDidMount() {
           facilisis ligula tortor at enim. Donec consequat, lacus vel porta
           maximus, leo mi laoreet tellus, quis bibendum metus dolor in mauris.
           <hr />
-          </div>
-          {/* {this.projects(this.state.projects[0].projectName, this.state.projects[0].image,this.state.projects[0].source)} */}
-          {console.log(this.state.projects) }
-       </div>
+        </div>
+
+        <div className="Projects">
+          <h2>PROJECTS</h2>
+        </div>
+        {this.projects(
+          PJdata[0].projectName,
+          // require("../Images/portfolio_preview2.png"),
+          require(PJdata[0].image),
+          PJdata[0].preview,
+          PJdata[0].source
+        )}
+      </div>
     );
   };
   content = () => {
@@ -135,9 +144,7 @@ componentDidMount() {
     );
   };
 
-
   render() {
-
     return (
       <div className="main">
         <div className="nav">{this.nav()}</div>

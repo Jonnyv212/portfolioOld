@@ -1,10 +1,14 @@
-{
-    "projectList":[
-            {
-                "projectName": "Portfolio", 
-                "image":"../Images/portfolio_preview2.png",
-                "preview":"Peter",
-                "source": "https://github.com/Jonnyv212/Portfolio"
-            }
-    ]
-}
+[
+  {
+    "projectName": "Portfolio",
+    "image": "../Images/portfolio_preview2.png",
+    "preview": "Preview",
+    "source": "https://github.com/Jonnyv212/Portfolio"
+  },
+  {
+    "projectName": "Portfolio2",
+    "image": "../Images/portfolio_preview2.png",
+    "preview": "Preview",
+    "source": "https://github.com/Jonnyv212/Portfolio"
+  }
+]
