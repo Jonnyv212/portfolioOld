@@ -16,35 +16,7 @@ class Main extends Component {
 
   componentDidMount() {}
 
-  header = () => {
-    return (
-      <div className="header">
-        <div className="headername">
-          <h1>Jonathan Vega</h1>
-          <p>Software Developer</p>
-        </div>
-        <div className="list">
-          <ul>
-            <li>
-              <a href="#home">
-                <img src={github} />
-              </a>
-            </li>
-            <li>
-              <a href="#news">
-                <img src={linkedin} />
-              </a>
-            </li>
-            <li>
-              <a href="mailto:jonnyv212@hotmail.com?Subject=Hello">
-                <img src={email} />
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    );
-  };
+  //Navigation bar at the top of the page. Fixed positioning
   nav = () => {
     return (
       <div>
@@ -67,7 +39,38 @@ class Main extends Component {
     );
   };
 
-  //Generates a project based on the JSON data.
+    //Header below the nav
+    header = () => {
+      return (
+        <div className="header">
+          <div className="headername">
+            <h1>Jonathan Vega</h1>
+            <p>Software Developer</p>
+          </div>
+          <div className="list">
+            <ul>
+              <li>
+                <a href="#home">
+                  <img src={github} />
+                </a>
+              </li>
+              <li>
+                <a href="#news">
+                  <img src={linkedin} />
+                </a>
+              </li>
+              <li>
+                <a href="mailto:jonnyv212@hotmail.com?Subject=Hello">
+                  <img src={email} />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      );
+    };
+
+  //Generates a project template for the portfolio function.
   projects = (pjName, pjImage, pjDescription, pjPreview, pjSource) => {
     return (
       <div className="Pcontainer">
@@ -96,6 +99,24 @@ class Main extends Component {
       </div>
     );
   };
+
+  //Generates a project based on the JSON data.
+  //Takes the JSON data and applies it from a loop to the projects function.
+  projectLister = () =>{
+    let pjIndex = PJdata.length
+    let pjFull = [];
+    for(let i=0; i<pjIndex; i++){
+      pjFull.push(this.projects(
+          PJdata[i].projectName,
+          require("../" + PJdata[i].image),
+          PJdata[i].description,
+          PJdata[i].preview,
+          PJdata[i].source
+        ))
+    }
+
+    return pjFull;
+  }
   portfolio = () => {
     return (
       <div>
@@ -120,14 +141,7 @@ class Main extends Component {
 
         <div className="Projects">
           <h2>PROJECTS</h2>
-        
-        {this.projects(
-          PJdata[0].projectName,
-          require("../" + PJdata[0].image),
-          PJdata[0].description,
-          PJdata[0].preview,
-          PJdata[0].source
-        )}
+        {this.projectLister()}
         </div>
       </div>
     );
