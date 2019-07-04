@@ -1,4 +1,4 @@
- [
+[
   {
     "projectName": "Portfolio",
     "image": "Images/portfolio_preview2.png",
@@ -7,16 +7,9 @@
     "source": "https://github.com/Jonnyv212/Portfolio"
   },
   {
-    "projectName": "Portfolio2",
-    "image": "Images/portfolio_preview2.png",
-    "description": "THIS IS A TEST",
-    "preview": "Preview",
-    "source": "https://github.com/Jonnyv212/Portfolio"
-  },
-  {
-    "projectName": "Portfolio3",
-    "image": "Images/portfolio_preview2.png",
-    "description": "THIS IS A TEST",
+    "projectName": "CNECENTRAL",
+    "image": "Images/cnecentral_preview.png",
+    "description": "The page you are currently viewing! teeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeext",
     "preview": "Preview",
     "source": "https://github.com/Jonnyv212/Portfolio"
   }

@@ -3,7 +3,6 @@ import "./Main.css";
 import github from "../Images/github2.jpg";
 import linkedin from "../Images/linkedin2.png";
 import email from "../Images/email6.png";
-import project1 from "../Images/portfolio_preview2.png";
 import PJdata from "../Main/Main.json";
 class Main extends Component {
   constructor(props) {
@@ -39,36 +38,36 @@ class Main extends Component {
     );
   };
 
-    //Header below the nav
-    header = () => {
-      return (
-        <div className="header">
-          <div className="headername">
-            <h1>Jonathan Vega</h1>
-            <p>Software Developer</p>
-          </div>
-          <div className="list">
-            <ul>
-              <li>
-                <a href="#home">
-                  <img src={github} />
-                </a>
-              </li>
-              <li>
-                <a href="#news">
-                  <img src={linkedin} />
-                </a>
-              </li>
-              <li>
-                <a href="mailto:jonnyv212@hotmail.com?Subject=Hello">
-                  <img src={email} />
-                </a>
-              </li>
-            </ul>
-          </div>
+  //Header below the nav
+  header = () => {
+    return (
+      <div className="header">
+        <div className="headername">
+          <h1>Jonathan Vega</h1>
+          <p>Software Developer</p>
         </div>
-      );
-    };
+        <div className="list">
+          <ul>
+            <li>
+              <a href="#home">
+                <img src={github} />
+              </a>
+            </li>
+            <li>
+              <a href="#news">
+                <img src={linkedin} />
+              </a>
+            </li>
+            <li>
+              <a href="mailto:jonnyv212@hotmail.com?Subject=Hello">
+                <img src={email} />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    );
+  };
 
   //Generates a project template for the portfolio function.
   projects = (pjName, pjImage, pjDescription, pjPreview, pjSource) => {
@@ -80,6 +79,8 @@ class Main extends Component {
             <img
               src={pjImage}
               style={{ boxShadow: "0 1rem 1rem rgba(0, 0, 0, 0.2)" }}
+              height="250"
+              width="450"
             />
             <div className="Plinks">
               <a href={pjPreview}> Preview</a>
@@ -102,21 +103,23 @@ class Main extends Component {
 
   //Generates a project based on the JSON data.
   //Takes the JSON data and applies it from a loop to the projects function.
-  projectLister = () =>{
-    let pjIndex = PJdata.length
+  projectLister = () => {
+    let pjIndex = PJdata.length;
     let pjFull = [];
-    for(let i=0; i<pjIndex; i++){
-      pjFull.push(this.projects(
+    for (let i = 0; i < pjIndex; i++) {
+      pjFull.push(
+        this.projects(
           PJdata[i].projectName,
           require("../" + PJdata[i].image),
           PJdata[i].description,
           PJdata[i].preview,
           PJdata[i].source
-        ))
+        )
+      );
     }
 
     return pjFull;
-  }
+  };
   portfolio = () => {
     return (
       <div>
@@ -141,7 +144,7 @@ class Main extends Component {
 
         <div className="Projects">
           <h2>PROJECTS</h2>
-        {this.projectLister()}
+          {this.projectLister()}
         </div>
       </div>
     );
