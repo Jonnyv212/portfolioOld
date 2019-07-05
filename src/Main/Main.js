@@ -3,9 +3,10 @@ import "./Main.css";
 import github from "../Images/github2.jpg";
 import linkedin from "../Images/linkedin2.png";
 import email from "../Images/email6.png";
+import email2 from "../Images/outlook2.png";
+import source from "../Images/source.png";
 import PJdata from "../Main/Main.json";
 import Fade from "react-reveal/Fade";
-
 class Main extends Component {
   constructor(props) {
     super(props);
@@ -14,7 +15,7 @@ class Main extends Component {
       //Adds array of objects from Main.json to projects state to call upon any object within the json.
     };
   }
-
+  
   componentDidMount() {}
 
   //Navigation bar at the top of the page. Fixed positioning
@@ -75,32 +76,37 @@ class Main extends Component {
   projects = (pjName, pjImage, pjDescription, pjPreview, pjSource) => {
     return (
       <div className="Pcontainer">
-        <div className="Pcontent">
-          <div className="Ptitle">{pjName}</div>
-          <img
-            src={pjImage}
-            style={{ boxShadow: "0 1rem 1rem rgba(0, 0, 0, 0.2)" }}
-            height="250"
-            width="450"
-          />
-          <div className="Plinks">
-            <a href={pjPreview}> Preview</a>
-            <a href={pjSource} target="_blank">
-              Source
-            </a>
+          <div className="Pcontent">
+            
+            <div className="Pimg">
+              <img
+                src={pjImage}
+                style={{ boxShadow: "0 1rem 1rem rgba(0, 0, 0, 0.2)" }}
+              />
+            </div>
+            
+              <div className="Pinfo">
+                <div className="Ptitle">{pjName}</div>
+                {pjDescription}
+              </div>
           </div>
-        </div>
 
-        <div className="Pinfo">
-          <div className="Pdescription">{pjDescription}</div>
-          <div className="Ptechnologies">
+          <div className="Pbottom">
+            <div className="PbottomLinks">
+              <a href={pjPreview}>Demo</a>
+
+              <a href={pjSource} target="_blank">
+                <img src={source}/>Source
+              </a>
+
+            </div>
+            <div className="Pstacks">
             <ul>
               <li>ReactJS</li>
               <li>JavaScript </li>
             </ul>
           </div>
         </div>
-
         {/* <hr /> */}
       </div>
     );
@@ -125,42 +131,72 @@ class Main extends Component {
 
     return pjFull;
   };
+
+  arrayTime = ()=>{
+    let hey = ["HTML ", "CSS ", "ReactJS "]
+    return(hey)
+  }
+  skillBlock = (image, skillType, skillName) => {
+    return(
+        <div className="skillBlock">
+          {image}
+          <img src="skillImage"/>
+          <h3 className="skillType">
+            {skillType}
+          </h3>
+          <p className="skillName">
+            {skillName}
+          </p>
+        </div>
+    );
+  }
   content = () => {
     return (
       <div>
         <div>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce finibus
-          sagittis dolor, vitae fermentum purus. Duis et massa eget arcu rutrum
-          egestas ut id tortor. Integer maximus imperdiet sem, ullamcorper
-          feugiat turpis dictum nec. Donec bibendum, nisl nec tincidunt dapibus,
-          lacus neque cursus augue, in finibus nulla nunc quis nibh. Phasellus
-          eu blandit elit. Praesent pellentesque elit erat, id laoreet purus
-          lobortis non. Fusce scelerisque risus sed sapien tempor, ac
-          sollicitudin lacus commodo. Integer congue, nunc malesuada ornare
-          condimentum, dui est lobortis nulla, et malesuada mi velit in felis.
-          Phasellus pretium posuere massa id hendrerit. Nunc quis erat nibh. Sed
-          dui eros, hendrerit at sem in, tincidunt iaculis tortor. Aenean quis
-          massa quis odio facilisis blandit sit amet in massa. Sed tincidunt, mi
-          a interdum consectetur, nulla augue porttitor ligula, hendrerit
-          facilisis ligula tortor at enim. Donec consequat, lacus vel porta
-          maximus, leo mi laoreet tellus, quis bibendum metus dolor in mauris.
-          <hr />
+          Description of who I am, what I do. Blah blah blah.
+          <div className="Resume">
+          <h1>Resume download button here. pdf</h1>
+          </div>
+          {/* <hr /> */}
         </div>
-
+        <div className="skills">
+          <h1>Skills</h1>
+          <div className="skillContainer">
+            {this.skillBlock("Image here", "Frontend", "Skill Name Here")}
+            {this.skillBlock("Image here", "Backend", "Skill Name Here")}
+            {this.skillBlock("Image here", "Other", "Skill Name Here")}
+          </div>
+        </div>
         <div className="Projects">
           <h2>PROJECTS</h2>
           <Fade>{this.projectLister()}</Fade>
-        </div>
-        <hr />
-        <div className="Resume">
-          TEST AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA AAAAAAAAAAAAAAAAAAAAAAAA
-          AAAAAAAAAAAAAAAAA AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-          AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA AAAAAATEXT HERE
         </div>
       </div>
     );
   };
 
+  footer = () => {
+    return(
+      <ul>
+        <li>
+          <a href="#home">
+             <img src={github} />
+           </a>
+        </li>
+        <li>
+          <a href="#home">
+             <img src={linkedin} />
+          </a>
+        </li>
+        <li> 
+          <a href="#home">
+             <img src={email2} />
+          </a>
+        </li>
+    </ul>
+    )
+  }
   render() {
     return (
       <div className="main">
@@ -170,11 +206,7 @@ class Main extends Component {
 
         <div className="content">{this.content()}</div>
         <div className="footer">
-          <ul>
-            <li>GitHub</li>
-            <li>LinkedIn</li>
-            <li>Email</li>
-          </ul>
+          {this.footer()}
         </div>
       </div>
     );

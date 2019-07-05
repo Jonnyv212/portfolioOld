@@ -126,7 +126,7 @@
   /* display: flex; */
   min-height: 90vh;
   margin-top: 40px;
-  background-color: white;
+  /* background-color: white; */
 }
 
 .Projects {
@@ -136,79 +136,152 @@
 
 .Pcontainer {
   /* border: solid black; */
-  width: 95%;
+  width: 100%;
   height: auto;
   display: inline-block;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  /* padding-top: 20px; */
+  /* padding-bottom: 20px; */
   box-shadow: 3px 3px 5px 5px #eeeeee;
-  margin: 12px;
+  margin: 8px;
 }
 
-.Pcontent {
-  /* border: solid black; */
-  width: 40%;
-  height: auto;
-  padding-right: 20px;
-  padding-left: 10px;
-  padding-bottom: 30px;
-  /* display: inline-block; */
-  float: left;
-  text-align: center;
-}
-
-.Pinfo {
-  /* border: solid black; */
-  /* display: inline-block; */
-  float: left;
-  width: 48%;
-  height: auto;
-  margin-left: 20px;
-  font-family: "Calibri", Times, serif;
-  /* text-align: center; */
-  word-wrap: break-word;
-}
 .Ptitle {
   font-size: 24px;
   font-weight: bold;
   text-align: center;
-}
-.Plinks {
-  /* border: solid black; */
-  padding: 10px;
-  margin: 6px;
-  width: 90%;
-  text-align: center;
-}
-
-.Plinks a {
-  padding-left: 30px;
-  padding-right: 30px;
-}
-
-.Pdescription {
+  padding-top: 6px;
+  padding-bottom: 18px;
   width: 100%;
-  margin-top: 40px;
-  margin-bottom: 40px;
-}
-.Ptechnologies {
-  width: 90%;
+  display: inline-block;
 }
 
-.Ptechnologies li {
+.Pcontent {
+  /* border: solid black; */
+  width: 100%;
+  height: auto;
+  /* margin-right: 20px;
+  margin-left: 10px;
+  margin-bottom: 10px; */
+  /* text-align: center; */
+  display: inline-block;
+}
+
+.Pimg{
+  width: 47%;
+  /* height: 100%; */
+  display:inline-block;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+}
+.Pimg img{
+  width:100%;
+}
+.Pimg img:hover{
+    transform: scale(1.1);
+    position: relative;
+    transition: all 0.1s ease-in;
+}
+.Pinfo {
+  width: 47%;
+  height: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+  display:inline-block;
+  font-family: "Calibri", Times, serif;
+  word-wrap: break-word;
+}
+
+.Pbottom {
+  /* border: solid black; */
+  padding: 2px;
+  margin: 2px;
+  width: 100%;
+  display:inline-block;
+}
+
+.PbottomLinks{
+  display:inline-block;
+  width: 45%;
+  text-align: center;
+  padding-right: 10px;
+}
+.PbottomLinks a {
+  /* padding-left: 10%;
+  padding-right: 5%; */
+  width: 50%;
+  display:inline-block;
+  /* border-radius: 50%; */
+}
+.PbottomLinks a img {
+  width: 25px;
+  height: auto;
+  display: inline-block;
+}
+.Pstacks {
+  width: 45%;
+  display:inline-block;
+  padding-left: 15px;
+}
+
+.Pstacks li {
   display: inline-block;
   padding: 3px 3px;
   margin-right: 12px;
-  background-color: rgb(219, 229, 235);
+  border-radius: 20%;
+  color: black;
+  background-color: rgb(201, 201, 201);
 }
 .Resume {
   width: 100%;
   word-wrap: break-word;
 }
 
+.skills{
+  width: 100%;
+  background-color: rgb(247, 247, 247);
+  padding-top: 100px;
+  padding-bottom: 100px;
+
+}
+.skills h1{
+  text-align: center;
+}
+
+.skillContainer{
+  width: 100%;
+  background-color: rgb(247, 247, 247);
+}
+
+.skillBlock{
+  width: 33.33%;
+  text-align: center;
+  /* border: solid black; */
+  display:inline-block;
+  padding-top: 30px;
+  padding-bottom: 30;
+
+}
+
+
 .footer {
   background: rgb(21, 28, 34);
+  position: absolute;
+  width: 100%;
 }
 
 .footer ul {
+  margin-top: 2px;
+  margin-bottom: 2px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 2px;
+  text-align: center;
+}
+
+.footer li{
+  display: inline-block;
+}
+.footer li img {
+  width: 30px;
 }
