@@ -151,6 +151,12 @@ class Main extends Component {
           <h2>PROJECTS</h2>
           <Fade>{this.projectLister()}</Fade>
         </div>
+        <hr />
+        <div className="Resume">
+          TEST AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA AAAAAAAAAAAAAAAAAAAAAAAA
+          AAAAAAAAAAAAAAAAA AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+          AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA AAAAAATEXT HERE
+        </div>
       </div>
     );
   };
@@ -163,6 +169,13 @@ class Main extends Component {
         <div>{this.header()}</div>
 
         <div className="content">{this.content()}</div>
+        <div className="footer">
+          <ul>
+            <li>GitHub</li>
+            <li>LinkedIn</li>
+            <li>Email</li>
+          </ul>
+        </div>
       </div>
     );
   }

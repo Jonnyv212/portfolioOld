@@ -8,11 +8,12 @@
 .nav {
   background: rgb(21, 28, 34);
   width: 100%;
-  float: left;
+  /* float: left; */
   border-bottom-style: solid;
   border-bottom-width: 1px;
   border-bottom-color: rgba(0, 0, 0, 0.125);
   position: fixed;
+  z-index: 10;
 }
 .nav p {
   float: left;
@@ -146,10 +147,10 @@
 
 .Pcontent {
   /* border: solid black; */
-  width: 45%;
+  width: 40%;
   height: auto;
-  margin-right: 20px;
-  margin-left: 10px;
+  padding-right: 20px;
+  padding-left: 10px;
   padding-bottom: 30px;
   /* display: inline-block; */
   float: left;
@@ -160,7 +161,7 @@
   /* border: solid black; */
   /* display: inline-block; */
   float: left;
-  width: 45%;
+  width: 48%;
   height: auto;
   margin-left: 20px;
   font-family: "Calibri", Times, serif;
@@ -199,4 +200,15 @@
   padding: 3px 3px;
   margin-right: 12px;
   background-color: rgb(219, 229, 235);
+}
+.Resume {
+  width: 100%;
+  word-wrap: break-word;
+}
+
+.footer {
+  background: rgb(21, 28, 34);
+}
+
+.footer ul {
 }
