@@ -2,6 +2,7 @@
   /* background: #ddd; */
   min-width: 100vh;
   min-height: 100vh;
+  background-color: rgb(252, 252, 252);
 }
 
 .nav {
@@ -116,80 +117,86 @@
   position: relative;
   transition: all 0.1s ease-in;
 }
+
 .content {
-  /* width: 75%; */
-  /* text-align: center; */
-  /* border: solid blue; */
-  width: 80%;
+  width: 70%;
   margin-left: auto;
   margin-right: auto;
-  display: flex;
-  /* overflow-y: scroll; */
-  /* background: white; */
+  /* display: flex; */
   min-height: 90vh;
-}
-
-
-
-.portfolio {
-  /* border: solid black; */
-  width: 90%;
-  background: #fff;
-  padding: 10px;
-  /* box-shadow: 5px 5px #bbb; */
   margin-top: 40px;
+  background-color: white;
 }
 
-.Projects{
-  border: solid black;
+.Projects {
+  /* border: solid black; */
   width: 100%;
 }
 
 .Pcontainer {
-  /* padding: 1rem;
-  margin: 2rem 0; */
-  border: solid black;
-  /* box-shadow: 5px 5px #bbb; */
-  width: 100%;
+  /* border: solid black; */
+  width: 95%;
+  height: auto;
+  display: inline-block;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  box-shadow: 3px 3px 5px 5px #eeeeee;
+  margin: 12px;
+}
+
+.Pcontent {
+  /* border: solid black; */
+  width: 45%;
+  height: auto;
+  margin-right: 20px;
+  margin-left: 10px;
+  padding-bottom: 30px;
   /* display: inline-block; */
+  float: left;
+  text-align: center;
 }
 
 .Pinfo {
-  border: solid black;
+  /* border: solid black; */
+  /* display: inline-block; */
+  float: left;
   width: 45%;
-  display: inline-block;
-  text-align: center;
-}
-
-.Pdescription{
-  border: solid black;
-  display: inline-block;
-  width: 45%;
-  padding-left: 20px;
-
-  text-align: center;
-  /* text-overflow: auto;
-  overflow: hidden;
-  white-space: nowrap; */
+  height: auto;
+  margin-left: 20px;
+  font-family: "Calibri", Times, serif;
+  /* text-align: center; */
   word-wrap: break-word;
 }
-.Plinks{
-  border: solid black;
+.Ptitle {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+.Plinks {
+  /* border: solid black; */
   padding: 10px;
   margin: 6px;
   width: 90%;
   text-align: center;
 }
 
-.Plinks a{
+.Plinks a {
   padding-left: 30px;
   padding-right: 30px;
 }
 
-.Ptechnologies{
-  display: inline-block;
-  width: 30%;
+.Pdescription {
+  width: 100%;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
-.Pcontent{
-  
+.Ptechnologies {
+  width: 90%;
+}
+
+.Ptechnologies li {
+  display: inline-block;
+  padding: 3px 3px;
+  margin-right: 12px;
+  background-color: rgb(219, 229, 235);
 }

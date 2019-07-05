@@ -4,6 +4,8 @@ import github from "../Images/github2.jpg";
 import linkedin from "../Images/linkedin2.png";
 import email from "../Images/email6.png";
 import PJdata from "../Main/Main.json";
+import Fade from "react-reveal/Fade";
+
 class Main extends Component {
   constructor(props) {
     super(props);
@@ -73,30 +75,33 @@ class Main extends Component {
   projects = (pjName, pjImage, pjDescription, pjPreview, pjSource) => {
     return (
       <div className="Pcontainer">
-        <h2>{pjName}</h2>
         <div className="Pcontent">
-          <div className="Pinfo">
-            <img
-              src={pjImage}
-              style={{ boxShadow: "0 1rem 1rem rgba(0, 0, 0, 0.2)" }}
-              height="250"
-              width="450"
-            />
-            <div className="Plinks">
-              <a href={pjPreview}> Preview</a>
-              <a href={pjSource} target="_blank">
-                Source
-              </a>
-            </div>
-          </div>
-
-          <div className="Pdescription">
-            {pjDescription}
-            <hr />
-            <div className="Ptechnologies">Technologies Used</div>
+          <div className="Ptitle">{pjName}</div>
+          <img
+            src={pjImage}
+            style={{ boxShadow: "0 1rem 1rem rgba(0, 0, 0, 0.2)" }}
+            height="250"
+            width="450"
+          />
+          <div className="Plinks">
+            <a href={pjPreview}> Preview</a>
+            <a href={pjSource} target="_blank">
+              Source
+            </a>
           </div>
         </div>
-        <hr />
+
+        <div className="Pinfo">
+          <div className="Pdescription">{pjDescription}</div>
+          <div className="Ptechnologies">
+            <ul>
+              <li>ReactJS</li>
+              <li>JavaScript </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* <hr /> */}
       </div>
     );
   };
@@ -120,7 +125,7 @@ class Main extends Component {
 
     return pjFull;
   };
-  portfolio = () => {
+  content = () => {
     return (
       <div>
         <div>
@@ -144,15 +149,8 @@ class Main extends Component {
 
         <div className="Projects">
           <h2>PROJECTS</h2>
-          {this.projectLister()}
+          <Fade>{this.projectLister()}</Fade>
         </div>
-      </div>
-    );
-  };
-  content = () => {
-    return (
-      <div>
-        <div className="portfolio">{this.portfolio()}</div>
       </div>
     );
   };
