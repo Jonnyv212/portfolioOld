@@ -166,30 +166,31 @@
   display: inline-block;
 }
 
-.Pimg{
+.Pimg {
   width: 47%;
   /* height: 100%; */
-  display:inline-block;
+  display: inline-block;
   padding-left: 10px;
   padding-right: 10px;
   padding-top: 10px;
 }
-.Pimg img{
-  width:100%;
+.Pimg img {
+  width: 100%;
 }
-.Pimg img:hover{
-    transform: scale(1.1);
-    position: relative;
-    transition: all 0.1s ease-in;
+.Pimg img:hover {
+  transform: scale(1.1);
+  position: relative;
+  transition: all 0.1s ease-in;
 }
 .Pinfo {
   width: 47%;
   height: auto;
   padding-left: 10px;
   padding-right: 10px;
-  display:inline-block;
+  display: inline-block;
   font-family: "Calibri", Times, serif;
   word-wrap: break-word;
+  vertical-align: top;
 }
 
 .Pbottom {
@@ -197,11 +198,11 @@
   padding: 2px;
   margin: 2px;
   width: 100%;
-  display:inline-block;
+  display: inline-block;
 }
 
-.PbottomLinks{
-  display:inline-block;
+.PbottomLinks {
+  display: inline-block;
   width: 45%;
   text-align: center;
   padding-right: 10px;
@@ -210,7 +211,7 @@
   /* padding-left: 10%;
   padding-right: 5%; */
   width: 50%;
-  display:inline-block;
+  display: inline-block;
   /* border-radius: 50%; */
 }
 .PbottomLinks a img {
@@ -220,7 +221,7 @@
 }
 .Pstacks {
   width: 45%;
-  display:inline-block;
+  display: inline-block;
   padding-left: 15px;
 }
 
@@ -237,32 +238,41 @@
   word-wrap: break-word;
 }
 
-.skills{
+.skills {
   width: 100%;
   background-color: rgb(247, 247, 247);
   padding-top: 100px;
   padding-bottom: 100px;
-
 }
-.skills h1{
+.skills h1 {
   text-align: center;
 }
 
-.skillContainer{
+.skillContainer {
   width: 100%;
+  /* box-sizing: border-box; */
   background-color: rgb(247, 247, 247);
+  display: flex;
 }
 
-.skillBlock{
-  width: 33.33%;
+.skillBlock {
+  width: 31%;
   text-align: center;
   /* border: solid black; */
-  display:inline-block;
-  padding-top: 30px;
-  padding-bottom: 30;
-
+  display: inline-block;
+  padding-top: 20px;
+  padding-bottom: 30px;
+  margin-left: 14px;
+  margin-right: 14px;
+  background-color: white;
+  box-shadow: 3px 3px 5px 5px #eeeeee;
 }
 
+.skillBlock img {
+  max-width: 100%;
+  width: 20%;
+  margin: 12px;
+}
 
 .footer {
   background: rgb(21, 28, 34);
@@ -279,7 +289,7 @@
   text-align: center;
 }
 
-.footer li{
+.footer li {
   display: inline-block;
 }
 .footer li img {
