@@ -2,28 +2,29 @@
 // const queries = require("./queries");
 const express = require("express");
 const app = express();
-const port = 3001;
+const port = 3002;
 const { Client } = require("pg");
 
 const connection = new Client({
-  connectionString: process.env.HEROKU_POSTGRESQL_PINK_URL,
+  connectionString: process.env.DATABASE_URL,
   ssl: true
 });
 
 connection.connect(err => {
-  console.log(process.env.HEROKU_POSTGRESQL_PINK_URL);
+  console.log(process.env.DATABASE_URL);
   //   console.log(process.env);
   if (err) {
     return err;
   }
 });
 
-app.get("/", (req, res) => {
-  connection.query("SELECT skill_name FROM public.skills", (err, results) => {
+app.get("/test", (req, res) => {
+  connection.query("SELECT * FROM public.skills", (err, results) => {
     if (err) {
       return res.send(err);
     } else {
-      res.json({ data: results });
+      // res.json({ data: results.rows });
+      res.send(results.rows)
     }
   });
 });

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Main.css";
+import axios from "axios";
 import github from "../Images/github2.jpg";
 import linkedin from "../Images/linkedin2.png";
 import email from "../Images/email6.png";
@@ -14,10 +15,45 @@ import Fade from "react-reveal/Fade";
 class Main extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      data: []
+    };
   }
-  componentDidMount() {}
+  componentDidMount() { 
+    axios.get("/test").then(response =>{
+       let res = response.data.length
+       let resFull = [];
 
+       for (let i = 0; i < res; i++) {
+         resFull.push(
+             response.data[i].skill_name,
+             response.data[i].skill_type
+         );
+      console.log(resFull)
+      this.setState({
+        data: resFull
+      })
+    }})
+  }
+    //   this.setState({
+    //     data: response.data
+    //   })
+    // })
+  // }
+
+
+getSkills() {
+  // axios
+  //   .get("/")
+  //   .then(response => {
+  //     console.log(response);
+  //   })
+  //   .catch(message => {
+  //     setTimeout(() => {
+  //       console.log("No data found. " + message);
+  //     }, 5000);
+  //   });
+}
   //Navigation bar at the top of the page. Fixed positioning
   nav = () => {
     // console.log(process.env.DATABASE_URL);
@@ -199,7 +235,7 @@ class Main extends Component {
         <div className="nav">{this.nav()}</div>
 
         <div>{this.header()}</div>
-
+        <div>{this.state.data}</div>
         <div className="content">{this.content()}</div>
         <div className="footer">{this.footer()}</div>
       </div>
