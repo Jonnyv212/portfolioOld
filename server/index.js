@@ -11,8 +11,8 @@ const connection = new Client({
 });
 
 connection.connect(err => {
-  // console.log(process.env);
-  //   console.log(process.env);
+  //  console.log(process.env);
+    //  console.log(process.env.DATABASE_URL);
   if (err) {
     return err;
   }
@@ -26,6 +26,7 @@ app.get("/db", (req, res) => {
       // res.json({ data: results.rows });
       res.send(results.rows);
       // res.send("Hey, we got here");
+      console.log("results: " + results.rows);
     }
   });
 });

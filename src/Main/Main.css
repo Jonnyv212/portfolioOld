@@ -68,7 +68,7 @@ html {
 
   text-align: center;
   /* background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), */
-  background-image: url(../Images/banner.jpg);
+  background-image: url("https://jv-portfolio-assets.s3.us-east-2.amazonaws.com/Images/header/banner.jpg");
   background-size: cover;
   padding-top: 100px;
   padding-bottom: 35px;

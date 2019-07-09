@@ -1,14 +1,6 @@
 import React, { Component } from "react";
 import "./Main.css";
 import axios from "axios";
-import github from "../Images/github2.jpg";
-import linkedin from "../Images/linkedin2.png";
-import email from "../Images/email6.png";
-import email2 from "../Images/outlook2.png";
-import source from "../Images/source.png";
-import frontend from "../Images/frontend.png";
-import backend from "../Images/backend.png";
-import git from "../Images/git.png";
 import PJdata from "../Main/Main.json";
 import Fade from "react-reveal/Fade";
 
@@ -30,12 +22,12 @@ class Main extends Component {
         } else {
           resFull.push(response.data[i].skill_name + ", ");
         }
+        console.log("Inside state data: " + resFull);
       }
       // Set state of data to complete array (resFull) of data
       this.setState({
         data: resFull
       });
-      console.log(this.state.data);
     });
   }
 
@@ -74,17 +66,17 @@ class Main extends Component {
           <ul>
             <li>
               <a href="#home">
-                <img src={github} />
+                <img src="https://jv-portfolio-assets.s3.us-east-2.amazonaws.com/Images/header/github2.jpg" />
               </a>
             </li>
             <li>
               <a href="#news">
-                <img src={linkedin} />
+                <img src="https://jv-portfolio-assets.s3.us-east-2.amazonaws.com/Images/header/linkedin2.png" />
               </a>
             </li>
             <li>
               <a href="mailto:jonnyv212@hotmail.com?Subject=Hello">
-                <img src={email} />
+                <img src="https://jv-portfolio-assets.s3.us-east-2.amazonaws.com/Images/header/email6.png" />
               </a>
             </li>
           </ul>
@@ -116,7 +108,7 @@ class Main extends Component {
             <a href={pjPreview}>Demo</a>
 
             <a href={pjSource} target="_blank">
-              <img src={source} />
+              <img src="https://jv-portfolio-assets.s3.us-east-2.amazonaws.com/Images/projects/source.png" />
               Source
             </a>
           </div>
@@ -141,7 +133,7 @@ class Main extends Component {
       pjFull.push(
         this.projects(
           PJdata[i].projectName,
-          require("../" + PJdata[i].image),
+          PJdata[i].image,
           PJdata[i].description,
           PJdata[i].preview,
           PJdata[i].source
@@ -152,11 +144,6 @@ class Main extends Component {
     return pjFull;
   };
 
-  skillArrays = () => {
-    let frontArr = ["HTML", "CSS", "ReactJS", "JavaScript"];
-    let backArr = ["SQL", "Node", "Axios"];
-    return frontArr;
-  };
   skillBlock = (image, skillType, skillName) => {
     return (
       <div className="skillBlock">
@@ -179,9 +166,9 @@ class Main extends Component {
         <div className="skills">
           <h1>Skills</h1>
           <div className="skillContainer">
-            {this.skillBlock(frontend, "Frontend", this.state.data)}
-            {this.skillBlock(backend, "Backend", "Skill Name Here")}
-            {this.skillBlock(git, "Other", "Skill Name Here")}
+            {this.skillBlock("https://jv-portfolio-assets.s3.us-east-2.amazonaws.com/Images/skills/frontend.png", "Frontend", this.state.data)}
+            {this.skillBlock("https://jv-portfolio-assets.s3.us-east-2.amazonaws.com/Images/skills/backend.png", "Backend", "Skill Name Here")}
+            {this.skillBlock("https://jv-portfolio-assets.s3.us-east-2.amazonaws.com/Images/skills/git.png", "Other", "Skill Name Here")}
           </div>
         </div>
         <div className="Projects" id="projects">
@@ -197,17 +184,17 @@ class Main extends Component {
       <ul>
         <li>
           <a href="#home">
-            <img src={github} />
+            <img src="https://jv-portfolio-assets.s3.us-east-2.amazonaws.com/Images/footer/github2.jpg" />
           </a>
         </li>
         <li>
           <a href="#home">
-            <img src={linkedin} />
+            <img src="https://jv-portfolio-assets.s3.us-east-2.amazonaws.com/Images/footer/linkedin2.png" />
           </a>
         </li>
         <li>
           <a href="#home">
-            <img src={email2} />
+            <img src="https://jv-portfolio-assets.s3.us-east-2.amazonaws.com/Images/footer/outlook2.png" />
           </a>
         </li>
       </ul>
