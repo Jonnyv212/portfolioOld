@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./Main.css";
-import axios from "axios";
+import github from "../Images/github2.jpg";
+import linkedin from "../Images/linkedin2.png";
+import email from "../Images/email6.png";
 import PJdata from "../Main/Main.json";
 import Fade from "react-reveal/Fade";
 
@@ -8,28 +10,12 @@ class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: []
+      // projects: []
+      //Adds array of objects from Main.json to projects state to call upon any object within the json.
     };
   }
-  componentDidMount() {
-    axios.get("/db").then(response => {
-      let res = response.data.length;
-      let resFull = [];
-      // For every piece of data in the array push it to a resFull.
-      for (let i = 0; i < res; i++) {
-        if (i == res - 1) {
-          resFull.push(response.data[i].skill_name);
-        } else {
-          resFull.push(response.data[i].skill_name + ", ");
-        }
-        console.log("Inside state data: " + resFull);
-      }
-      // Set state of data to complete array (resFull) of data
-      this.setState({
-        data: resFull
-      });
-    });
-  }
+
+  componentDidMount() {}
 
   //Navigation bar at the top of the page. Fixed positioning
   nav = () => {
@@ -38,13 +24,13 @@ class Main extends Component {
         <p>Jonathan Vega</p>
         <ul>
           <li>
-            <a href="#about">About</a>
+            <a href="#home">About</a>
+          </li>
+          <li>
+            <a href="#news">Projects</a>
           </li>
           <li>
             <a href="#resume">Resume</a>
-          </li>
-          <li>
-            <a href="#projects">Projects</a>
           </li>
           <li>
             <a href="#contact">Contact</a>
@@ -66,17 +52,17 @@ class Main extends Component {
           <ul>
             <li>
               <a href="#home">
-                <img src="https://jv-portfolio-assets.s3.us-east-2.amazonaws.com/Images/header/github2.jpg" />
+                <img src={github} />
               </a>
             </li>
             <li>
               <a href="#news">
-                <img src="https://jv-portfolio-assets.s3.us-east-2.amazonaws.com/Images/header/linkedin2.png" />
+                <img src={linkedin} />
               </a>
             </li>
             <li>
               <a href="mailto:jonnyv212@hotmail.com?Subject=Hello">
-                <img src="https://jv-portfolio-assets.s3.us-east-2.amazonaws.com/Images/header/email6.png" />
+                <img src={email} />
               </a>
             </li>
           </ul>
@@ -90,35 +76,31 @@ class Main extends Component {
     return (
       <div className="Pcontainer">
         <div className="Pcontent">
-          <div className="Pimg">
-            <img
-              src={pjImage}
-              style={{ boxShadow: "0 1rem 1rem rgba(0, 0, 0, 0.2)" }}
-            />
-          </div>
-
-          <div className="Pinfo">
-            <div className="Ptitle">{pjName}</div>
-            {pjDescription}
-          </div>
-        </div>
-
-        <div className="Pbottom">
-          <div className="PbottomLinks">
-            <a href={pjPreview}>Demo</a>
-
+          <div className="Ptitle">{pjName}</div>
+          <img
+            src={pjImage}
+            style={{ boxShadow: "0 1rem 1rem rgba(0, 0, 0, 0.2)" }}
+            height="250"
+            width="450"
+          />
+          <div className="Plinks">
+            <a href={pjPreview}> Preview</a>
             <a href={pjSource} target="_blank">
-              <img src="https://jv-portfolio-assets.s3.us-east-2.amazonaws.com/Images/projects/source.png" />
               Source
             </a>
           </div>
-          <div className="Pstacks">
+        </div>
+
+        <div className="Pinfo">
+          <div className="Pdescription">{pjDescription}</div>
+          <div className="Ptechnologies">
             <ul>
               <li>ReactJS</li>
               <li>JavaScript </li>
             </ul>
           </div>
         </div>
+
         {/* <hr /> */}
       </div>
     );
@@ -133,7 +115,7 @@ class Main extends Component {
       pjFull.push(
         this.projects(
           PJdata[i].projectName,
-          PJdata[i].image,
+          require("../" + PJdata[i].image),
           PJdata[i].description,
           PJdata[i].preview,
           PJdata[i].source
@@ -143,35 +125,29 @@ class Main extends Component {
 
     return pjFull;
   };
-
-  skillBlock = (image, skillType, skillName) => {
-    return (
-      <div className="skillBlock">
-        <img src={image} />
-        <h3 className="skillType">{skillType}</h3>
-        <p className="skillName">{skillName}</p>
-      </div>
-    );
-  };
   content = () => {
     return (
-      <div id="about">
+      <div>
         <div>
-          Description of who I am, what I do. Blah blah blah.
-          <div className="Resume">
-            <h1>Resume download button here. pdf</h1>
-          </div>
-          {/* <hr /> */}
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce finibus
+          sagittis dolor, vitae fermentum purus. Duis et massa eget arcu rutrum
+          egestas ut id tortor. Integer maximus imperdiet sem, ullamcorper
+          feugiat turpis dictum nec. Donec bibendum, nisl nec tincidunt dapibus,
+          lacus neque cursus augue, in finibus nulla nunc quis nibh. Phasellus
+          eu blandit elit. Praesent pellentesque elit erat, id laoreet purus
+          lobortis non. Fusce scelerisque risus sed sapien tempor, ac
+          sollicitudin lacus commodo. Integer congue, nunc malesuada ornare
+          condimentum, dui est lobortis nulla, et malesuada mi velit in felis.
+          Phasellus pretium posuere massa id hendrerit. Nunc quis erat nibh. Sed
+          dui eros, hendrerit at sem in, tincidunt iaculis tortor. Aenean quis
+          massa quis odio facilisis blandit sit amet in massa. Sed tincidunt, mi
+          a interdum consectetur, nulla augue porttitor ligula, hendrerit
+          facilisis ligula tortor at enim. Donec consequat, lacus vel porta
+          maximus, leo mi laoreet tellus, quis bibendum metus dolor in mauris.
+          <hr />
         </div>
-        <div className="skills">
-          <h1>Skills</h1>
-          <div className="skillContainer">
-            {this.skillBlock("https://jv-portfolio-assets.s3.us-east-2.amazonaws.com/Images/skills/frontend.png", "Frontend", this.state.data)}
-            {this.skillBlock("https://jv-portfolio-assets.s3.us-east-2.amazonaws.com/Images/skills/backend.png", "Backend", "Skill Name Here")}
-            {this.skillBlock("https://jv-portfolio-assets.s3.us-east-2.amazonaws.com/Images/skills/git.png", "Other", "Skill Name Here")}
-          </div>
-        </div>
-        <div className="Projects" id="projects">
+
+        <div className="Projects">
           <h2>PROJECTS</h2>
           <Fade>{this.projectLister()}</Fade>
         </div>
@@ -179,35 +155,14 @@ class Main extends Component {
     );
   };
 
-  footer = () => {
-    return (
-      <ul>
-        <li>
-          <a href="#home">
-            <img src="https://jv-portfolio-assets.s3.us-east-2.amazonaws.com/Images/footer/github2.jpg" />
-          </a>
-        </li>
-        <li>
-          <a href="#home">
-            <img src="https://jv-portfolio-assets.s3.us-east-2.amazonaws.com/Images/footer/linkedin2.png" />
-          </a>
-        </li>
-        <li>
-          <a href="#home">
-            <img src="https://jv-portfolio-assets.s3.us-east-2.amazonaws.com/Images/footer/outlook2.png" />
-          </a>
-        </li>
-      </ul>
-    );
-  };
   render() {
     return (
       <div className="main">
         <div className="nav">{this.nav()}</div>
 
         <div>{this.header()}</div>
+
         <div className="content">{this.content()}</div>
-        <div className="footer">{this.footer()}</div>
       </div>
     );
   }
