@@ -19,56 +19,40 @@ class Main extends Component {
       data: []
     };
   }
-  componentDidMount() { 
-    axios.get("/test").then(response =>{
-       let res = response.data.length
-       let resFull = [];
-
-       for (let i = 0; i < res; i++) {
-         resFull.push(
-             response.data[i].skill_name,
-             response.data[i].skill_type
-         );
-      console.log(resFull)
+  componentDidMount() {
+    axios.get("/db").then(response => {
+      let res = response.data.length;
+      let resFull = [];
+      // For every piece of data in the array push it to a resFull.
+      for (let i = 0; i < res; i++) {
+        if (i == res - 1) {
+          resFull.push(response.data[i].skill_name);
+        } else {
+          resFull.push(response.data[i].skill_name + ", ");
+        }
+      }
+      // Set state of data to complete array (resFull) of data
       this.setState({
         data: resFull
-      })
-    }})
+      });
+      console.log(this.state.data);
+    });
   }
-    //   this.setState({
-    //     data: response.data
-    //   })
-    // })
-  // }
 
-
-getSkills() {
-  // axios
-  //   .get("/")
-  //   .then(response => {
-  //     console.log(response);
-  //   })
-  //   .catch(message => {
-  //     setTimeout(() => {
-  //       console.log("No data found. " + message);
-  //     }, 5000);
-  //   });
-}
   //Navigation bar at the top of the page. Fixed positioning
   nav = () => {
-    // console.log(process.env.DATABASE_URL);
     return (
       <div>
         <p>Jonathan Vega</p>
         <ul>
           <li>
-            <a href="#home">About</a>
-          </li>
-          <li>
-            <a href="#news">Projects</a>
+            <a href="#about">About</a>
           </li>
           <li>
             <a href="#resume">Resume</a>
+          </li>
+          <li>
+            <a href="#projects">Projects</a>
           </li>
           <li>
             <a href="#contact">Contact</a>
@@ -184,7 +168,7 @@ getSkills() {
   };
   content = () => {
     return (
-      <div>
+      <div id="about">
         <div>
           Description of who I am, what I do. Blah blah blah.
           <div className="Resume">
@@ -195,12 +179,12 @@ getSkills() {
         <div className="skills">
           <h1>Skills</h1>
           <div className="skillContainer">
-            {this.skillBlock(frontend, "Frontend", this.skillArrays())}
+            {this.skillBlock(frontend, "Frontend", this.state.data)}
             {this.skillBlock(backend, "Backend", "Skill Name Here")}
             {this.skillBlock(git, "Other", "Skill Name Here")}
           </div>
         </div>
-        <div className="Projects">
+        <div className="Projects" id="projects">
           <h2>PROJECTS</h2>
           <Fade>{this.projectLister()}</Fade>
         </div>
@@ -235,7 +219,6 @@ getSkills() {
         <div className="nav">{this.nav()}</div>
 
         <div>{this.header()}</div>
-        <div>{this.state.data}</div>
         <div className="content">{this.content()}</div>
         <div className="footer">{this.footer()}</div>
       </div>
