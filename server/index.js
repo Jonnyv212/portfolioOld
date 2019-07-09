@@ -2,7 +2,7 @@
 // const queries = require("./queries");
 const express = require("express");
 const app = express();
-const port = 3001;
+const PORT = process.env.PORT || 3001;
 const { Client } = require("pg");
 
 const connection = new Client({
@@ -32,7 +32,7 @@ app.get("/db", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log("Listening to port: " + port);
+  console.log(`Listening to port: ${ PORT }`);
 });
 
 // //Server-side filtered data based on parameters /:column/:data sent by client request.
